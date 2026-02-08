@@ -1,0 +1,262 @@
+:root {
+  --yp-mint: #68d7c3;
+  --yp-bg: rgba(255, 255, 255, 0.92);
+  --yp-card: rgba(255, 255, 255, 0.78);
+  --yp-border: rgba(0, 0, 0, 0.08);
+  --yp-text: #1f2937;
+  --yp-muted: rgba(31, 41, 55, 0.65);
+  --yp-shadow: 0 14px 38px rgba(0,0,0,0.16);
+}
+
+/* Main box */
+#abloop-box {
+  position: fixed;
+  right: 16px;
+  bottom: 110px;
+  z-index: 999999;
+  width: 340px;
+  background: var(--yp-bg);
+  color: var(--yp-text);
+  border-radius: 18px;
+  padding: 12px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  box-shadow: var(--yp-shadow);
+  border: 1px solid var(--yp-border);
+  backdrop-filter: blur(10px);
+}
+
+#abloop-box * { box-sizing: border-box; }
+
+/* Top bar */
+#abloop-box .top {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom: 8px;
+}
+
+#abloop-box .title {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  display:flex;
+  align-items:center;
+  gap: 8px;
+}
+
+#abloop-badge {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--yp-mint);
+  box-shadow: 0 0 0 6px rgba(104, 215, 195, 0.22);
+}
+
+/* Buttons */
+#abloop-box button {
+  border: 1px solid var(--yp-border);
+  background: rgba(255,255,255,0.75);
+  color: var(--yp-text);
+  padding: 8px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+#abloop-box button:hover { background: rgba(255,255,255,0.92); }
+#abloop-box button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.abloop-iconbtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  padding: 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* Rows */
+#abloop-box .row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  align-items: center;
+}
+
+#abloop-box .mono { font-variant-numeric: tabular-nums; }
+#abloop-box .muted { color: var(--yp-muted); font-size: 12px; line-height: 1.35; }
+#abloop-box input[type="range"] { width: 100%; }
+
+/* Transport */
+#abloop-transport button { flex: 1; }
+
+/* Icon buttons inside transport */
+.abloop-icbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.abloop-icbtn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.95;
+}
+
+.abloop-icbtn .k {
+  font-size: 12px;
+  color: rgba(31,41,55,0.65);
+}
+
+/* Cards */
+.abloop-card {
+  background: var(--yp-card);
+  border: 1px solid var(--yp-border);
+  border-radius: 14px;
+  padding: 10px;
+}
+
+/* Timeline */
+#abloop-bar {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.08);
+  overflow: visible;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+#abloop-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: rgba(104, 215, 195, 0.35);
+  z-index: 1;
+}
+
+#abloop-range {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(104, 215, 195, 0.6);
+  display: none;
+  z-index: 2;
+}
+
+/* Cursor */
+#abloop-cursor {
+  position: absolute;
+  top: -9px;
+  width: 2px;
+  height: 28px;
+  background: rgba(31,41,55,0.7);
+  left: 0%;
+  opacity: 0.9;
+  z-index: 4;
+}
+
+/* Smaller handles */
+.abloop-handle {
+  position: absolute;
+  top: -6px;
+  width: 6px;
+  height: 16px;
+  border-radius: 6px;
+  transform: translateX(-50%);
+  cursor: grab;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+  display: none;
+  z-index: 5;
+}
+.abloop-handle:active { cursor: grabbing; }
+
+#abloop-handleA { background: rgba(60, 200, 170, 0.95); }
+#abloop-handleB { background: rgba(255, 92, 92, 0.95); }
+
+.abloop-handle::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  width: 8px;
+  height: 12px;
+  border-radius: 8px;
+  transform: translateX(-50%);
+  background: inherit;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+#abloop-time-row {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--yp-muted);
+}
+#abloop-time-row b { color: var(--yp-text); }
+
+/* ===== Mini bubble: fixed at red-dot position ===== */
+#abloop-mini {
+  position: fixed;
+  right: 10px;     /* sát mép phải */
+  top: 210px;      /* chỉnh theo chấm đỏ - bạn muốn cao/thấp thì đổi */
+  z-index: 999999;
+
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(0,0,0,0.10);
+  box-shadow: var(--yp-shadow);
+
+  display: none;
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#abloop-mini::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 6px rgba(104, 215, 195, 0.18);
+  pointer-events: none;
+}
+
+#abloop-mini svg {
+  width: 26px;
+  height: 26px;
+  stroke: #1f2937;
+  fill: none;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.95;
+}
+
+.abloop-icbtn svg,
+.abloop-icbtn svg * {
+  pointer-events: none;
+}

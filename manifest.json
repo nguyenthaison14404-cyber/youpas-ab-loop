@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "YouPass A–B Loop + Speed",
+  "version": "1.5.0",
+  "description": "A/B loop with draggable handles, speed control, transport controls, and a minimizable UI.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://e-learning.youpass.vn/practice/listening/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://e-learning.youpass.vn/practice/listening/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
