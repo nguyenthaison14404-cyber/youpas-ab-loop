@@ -174,6 +174,8 @@
   box.querySelector("#ab-min").addEventListener("click", minimize);
   mini.addEventListener("click", restore);
 
+  minimize();
+
   // ===== Refs =====
   const elA = box.querySelector("#ab-a");
   const elB = box.querySelector("#ab-b");
